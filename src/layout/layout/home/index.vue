@@ -1,6 +1,7 @@
 <script setup>
+import { requestAddressData } from '@/service/module/home.js';
 const { proxy } = getCurrentInstance()
-
+requestAddressData()
 </script>
 
 <template>

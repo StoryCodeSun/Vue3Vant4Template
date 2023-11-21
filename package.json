@@ -1,10 +1,12 @@
 {
-  "name": "qqqqqqq",
+  "name": "vue3_vant4_template",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:stage": "vite build --mode staging",
+    "build:prod": "vite build --mode production",
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
     "format": "prettier --write src/"

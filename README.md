@@ -28,10 +28,15 @@ npm install
 npm run dev
 ```
 
+### Compile and Minify for Staging
+
+```sh
+npm run build:stage
+```
 ### Compile and Minify for Production
 
 ```sh
-npm run build
+npm run build || npm run build:prod
 ```
 
 ### Run Unit Tests with [Vitest](https://vitest.dev/)
@@ -75,6 +80,13 @@ npm run lint
         │  ├─my  我的
         └─login  登录
 ```
+### 跨域问题
+
++ 通过vite 中 proxy代理解决跨域问题
++ 不管后端做不做跨域处理, 在开发阶段你只需要修改.env.development文件中VITE_APP_BASE_API的域名
++ 其他环境亦是如此
+
+
 ### 集成 iconfont
 
 + 在 iconfont 官网上选择需要引入的图标，将它们添加到购物车中，并生成对应的项目。

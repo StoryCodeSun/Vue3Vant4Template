@@ -15,16 +15,16 @@ const router = createRouter({
 })
 router.beforeEach((to, from, next) => {
   // const token = getSto('token')
-  const token = '111111111'
+  // const token = '111111111'
   // next()
-  if (to.path === '/login/login') {
-    clearSto()
-    next()
-  } else if (!token) {
-    next('/login/login')
-  } else {
-    next()
-  }
+  // if (to.path === '/login/login') {
+  //   clearSto()
+  //   next()
+  // } else if (!token) {
+  //   next('/login/login')
+  // } else {
+  //   next()
+  // }
 })
 
 export default router

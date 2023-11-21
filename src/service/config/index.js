@@ -1,12 +1,5 @@
-let BASE_URL = import.meta.env.VITE_APP_BASE_API;
+const BASE_API = import.meta.env.VITE_APP_BASE_API;
+const BASE_URL = import.meta.env.VITE_APP_BASE_URL;
 
-// if (import.meta.env.DEV) {
-//   // 开发环境
-//   BASE_URL = "";
-// } else {
-//   // 生产环境
-//   BASE_URL = "";
-// }
 export const TIME_OUT = 10000;
-export { BASE_URL };
-
+export { BASE_API, BASE_URL };
