@@ -1,0 +1,8 @@
+
+$custom-color: #409eff;
+$back-up10-color: lighten($custom-color, 10%);
+
+:root {
+  --custom-color: $custom-color;
+  --back-up10-color: $back-up10-color;
+}

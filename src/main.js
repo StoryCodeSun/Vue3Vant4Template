@@ -2,6 +2,7 @@ import { BASE_URL } from "@/service/config";
 import * as vant from "@/utils/vant";
 import "amfe-flexible";
 import "normalize.css";
+// import "@/assets/theme/theme.scss"
 import { createApp } from "vue";
 import { createI18n } from "vue-i18n";
 import App from "./App.vue";

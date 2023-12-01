@@ -1,7 +1,4 @@
 @import url('./fonts/Custom.css');
-:root {
-
-}
 
 html,body{line-height: 1;font-family: "Custom" !important;font-size: 16px;font-style: normal;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;}
 .user-select-none {user-select: none;}
@@ -14,3 +11,13 @@ html,body{line-height: 1;font-family: "Custom" !important;font-size: 16px;font-s
 .fs-h7{font-size:13px;}
 .fs-h8{font-size:12px;}
 .error{color: red;}
+html[date-theme="light"]{
+  --custom-color: #409eff;
+  --van-black: #000 !important;
+  --van-white: #fff !important;
+}
+html[date-theme="dark"]{
+  --custom-color: #409eff;
+  --van-black: #fff !important;
+  --van-white: #000 !important;
+}

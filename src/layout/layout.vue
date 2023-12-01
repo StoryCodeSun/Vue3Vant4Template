@@ -1,14 +1,15 @@
 <script setup>
-  import { useMenu } from '@/stores/module/menu.js';
-  const { menuActive } = storeToRefs(useMenu)
+  import { useMenu } from '@/stores/module/menu.js'
+  const { menuActive, menuList } = storeToRefs(useMenu())
 </script>
 
 <template>
   <div class="layout">
     <router-view></router-view>
     <van-tabbar v-model="menuActive">
-      <van-tabbar-item to="/home" icon="home-o">首页</van-tabbar-item>
-      <van-tabbar-item to="/" icon="contact-o">我的</van-tabbar-item>
+      <template v-for="item in menuList" :key="item.path">
+        <van-tabbar-item :to="item.path" :icon="item.icon">{{ item.name }}</van-tabbar-item>
+      </template>
     </van-tabbar>
   </div>
 </template>
@@ -18,4 +19,8 @@ name: layoutMenu
 meta:
   requiresAuth: true
 </route>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.layout{
+  background-color: var(--van-black);
+}
+</style>

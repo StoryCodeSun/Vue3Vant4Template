@@ -1,19 +1,17 @@
-<script setup>
-
-</script>
+<script setup></script>
 
 <template>
-  <div class="my">
-    my
-  </div>
+  <div class="my"></div>
 </template>
- <route lang="yaml">
- name: my
- title: 我的
- path: /my
- meta:
-   requiresAuth: true
- </route>
+<route lang="yaml">
+name: my
+path: /my
+meta:
+  title: 我的
+  back: false
+  requiresAuth: true
+</route>
 <style lang="css" scoped>
-  .my{}
+  .my {
+  }
 </style>

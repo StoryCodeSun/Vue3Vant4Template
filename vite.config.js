@@ -44,6 +44,13 @@ export default defineConfig(({ command, mode }) => {
           }),
         ],
       },
+      preprocessorOptions: {
+        scss: {
+          additionalData: '@import "./src/assets/theme/theme.scss";',
+          // additionalData: `@use "@/assets/theme/theme" as *;`,
+          // javascriptEnabled: true,
+        },
+      },
     },
     resolve: {
       alias: {
@@ -60,6 +67,11 @@ export default defineConfig(({ command, mode }) => {
           rewrite: (path) => path.replace(new RegExp(`${env.VITE_APP_BASE_URL}`), ""),
         },
       },
+    },
+    build: {
+      outDir: "decline_code_H5",
+      assetsDir: "assets", //! 勿修改 utils 工具中 importFile 函数以 assets 为相对路径
+      chunkSizeWarningLimit: 600,
     },
   };
 });

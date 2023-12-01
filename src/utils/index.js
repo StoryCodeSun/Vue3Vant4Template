@@ -30,6 +30,17 @@ export function clearSto() {
   localStorage.clear();
 }
 /**
+ * 静态文件引入
+ * @param {String} url 地址
+ * @returns 拼接后地址
+ * @example 调用示例
+ * importFile('image/xxx')
+ */
+export function importFile(url) {
+  console.log("url", url);
+  return new URL(`../assets/${url}`, import.meta.url).href;
+}
+/**
  * 行内样式转换
  * @param {String} px 行内元素适用
  * @returns 转换后的像素单位

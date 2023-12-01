@@ -16,7 +16,7 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
   // const token = getSto('token')
   // const token = '111111111'
-  // next()
+  next()
   // if (to.path === '/login/login') {
   //   clearSto()
   //   next()
