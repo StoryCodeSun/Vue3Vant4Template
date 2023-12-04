@@ -10,8 +10,8 @@ lerna-debug.log*
 node_modules
 .DS_Store
 dist
-vant_H5
-vant_H5.*
+decline_code_H5
+decline_code_H5.*
 dist-ssr
 coverage
 *.local
