@@ -31,6 +31,9 @@ export default defineConfig(({ command, mode }) => {
       }),
       Components({
         resolvers: [VantResolver()],
+        dirs: ['src/components'],
+        extensions: ['vue'],
+        deep: true,
       }),
     ],
     css: {

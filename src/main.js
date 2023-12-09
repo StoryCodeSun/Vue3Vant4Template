@@ -19,15 +19,15 @@ Object.keys(utils).forEach((key) => {
 Object.keys(vant).forEach((key) => {
   app.config.globalProperties[key] = vant[key];
 });
-const modules = import.meta.glob("./components/**/*.vue");
-Object.keys(modules).forEach(async (path) => {
-  const componentConfig = await modules[path]();
-  const componentName = path
-    .split("/")
-    .pop()
-    .replace(/\.\w+$/, "");
-  app.component(componentName, componentConfig.default || componentConfig);
-});
+// const modules = import.meta.glob("./components/**/*.vue");
+// Object.keys(modules).forEach(async (path) => {
+//   const componentConfig = await modules[path]();
+//   const componentName = path
+//     .split("/")
+//     .pop()
+//     .replace(/\.\w+$/, "");
+//   app.component(componentName, componentConfig.default || componentConfig);
+// });
 app.config.globalProperties.httpUrl = BASE_URL;
 app.config.globalProperties.vantLocales = vantLocales;
 app.use(pinia).use(router).use(i18n);
