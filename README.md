@@ -2,12 +2,9 @@
 
 ### Project Introduction
 
-### 基于[vant](https://vant-contrib.gitee.io/vant/#/zh-CN/home)封装
+### 基于[vant](https://vant-contrib.gitee.io/vant/#/zh-CN/home)封装: node-v v16.20.2 npm-v 8.19.4
 
-### node-v npm-v
-```
-v16.20.2 | 8.19.4
-```
+
 ## Recommended IDE Setup
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
@@ -25,7 +22,7 @@ npm install
 ### Compile and Hot-Reload for Development
 
 ```sh
-npm run dev
+npm start | npm run dev
 ```
 
 ### Compile and Minify for Staging
@@ -37,12 +34,6 @@ npm run build:stage
 
 ```sh
 npm run build || npm run build:prod
-```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-npm run test:unit
 ```
 
 ### Lint with [ESLint](https://eslint.org/)
@@ -59,26 +50,37 @@ npm run lint
 ├─.vscode
 ├─node_modules  依赖文件
 ├─public  公共
-└─src  源文件
-    ├─assets     资源
-    │  └─theme   主题修改
-    ├─components 全局公共组件  无需引入
-    ├─hooks      hooks 抽离
-    ├─plugins    插中方法封装抽离
-    ├─router     路由
-    ├─service    请求相关
-    │  ├─config  环境配置
-    │  ├─module  请求模块化抽离
-    │  └─request 请求封装
-    ├─stores     状态管理
-    │  └─module  模块化
-    ├─utils      工具方法抽离
-    └─views      视图资源
-        ├─404    找不到页面
-        ├─layout 布局
-        │  ├─home
-        │  ├─my  我的
-        └─login  登录
+├─src  源文件
+│   ├─assets        资源
+│   │  └─theme      主题修改
+│   ├─components    全局公共组件  无需引入
+│   ├─hooks         hooks 抽离
+│   ├─layout/layout 布局（菜单页编写位置）
+│   ├─locale        国际化
+│   ├─router        路由
+│   ├─service       请求相关
+│   │  ├─config     环境配置
+│   │  ├─module     请求模块化抽离
+│   │  └─request    请求封装
+│   ├─stores        状态管理
+│   │  └─module     模块化
+│   ├─utils         工具方法抽离
+│   ├─views         视图资源（子页面编写位置）
+│   │   ├─404       找不到页面
+│   │   └─login     登录
+│   └─App           vue入口
+├─.env.development  开发环境配置
+├─.env.production   生产环境配置
+├─.env.staging      测试环境配置
+├─.eslintrc.js      eslint配置文件
+├─.gitignore        git忽略文件
+├─.prettierrc.json  代码风格文件
+├─index.html        入口页面
+├─package-lock.json 精确版本依赖文件
+├─package.json      依赖文件
+├─README.md         README自述文件
+└─vite.config.js    vite配置文件
+
 ```
 ### 跨域问题
 

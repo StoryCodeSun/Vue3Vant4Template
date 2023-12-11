@@ -1,10 +1,18 @@
-<script setup>
+<script setup name="home">
+  // const Global = inject('Global')
+  const { proxy } = getCurrentInstance()
+  // console.log('Global', Global)
+  console.log('httpUrl', proxy.httpUrl)
+  console.log('codeSun', codeSun)
 
 </script>
+
+
 
 <template>
   <div class="home"></div>
 </template>
+
 <route lang="yaml">
 name: home
 path: /home
@@ -13,6 +21,7 @@ meta:
   back: false
   requiresAuth: true
 </route>
+
 <style lang="scss" scoped>
   .home {
     width: 750px;

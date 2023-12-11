@@ -1,4 +1,4 @@
-import { getSto } from "@/utils";
+import { getSto } from "@/utils/general/index.js";
 import enUS from "./en-US.json"; // 英语
 import zhCN from "./zh-CN.json"; // 简体中文
 import zhHK from "./zh-HK.json"; // 繁体中文

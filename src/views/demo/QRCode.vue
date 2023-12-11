@@ -4,7 +4,6 @@
 <template>
   <div>
     <QRCodeVue3 value="Simple QR code" />
-
     <QRCodeVue3
       :width="200"
       :height="200"
@@ -35,3 +34,10 @@
     />
   </div>
 </template>
+<route lang="yaml">
+name: QRCode
+path: /QRCode
+meta:
+  title: page_title
+  requiresAuth: true
+</route>

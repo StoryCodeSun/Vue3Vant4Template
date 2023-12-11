@@ -1,4 +1,4 @@
-import { getSto } from "@/utils";
+import { getSto } from "@/utils/general/index.js";
 import { BASE_URL, BASE_API, TIME_OUT } from "./config";
 import request from "./request";
 // 后端解决跨域 BASE_API | http
