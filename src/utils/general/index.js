@@ -1,30 +1,48 @@
 // import.meta.glob
 /**
  * 存
- * @param {String} key 键
+ * @param {string} key 键
  * @param {Any} value 值
+ * @param {number} expires 过期时间 毫秒 不传默认: 0 永久储存
  */
-export function setSto(key, value) {
-  localStorage.setItem(key, JSON.stringify(value));
+export function setLSto(key, value, expires = 0) {
+  if (expires) {
+    let startTime = new Date().getTime(); // 记录缓存时间，毫秒
+    localStorage.setItem(key, JSON.stringify({ key, value, expires, startTime }));
+  } else {
+    localStorage.setItem(key, JSON.stringify(value));
+  }
 }
 /**
  * 取
  * @param {String} key 键
  */
-export function getSto(key) {
-  return JSON.parse(localStorage.getItem(key));
+export function getLSto(key) {
+  const parseValue = JSON.parse(localStorage.getItem(key));
+  if (parseValue?.startTime) {
+    let currentTime = new Date().getTime();
+    if (currentTime - parseValue.startTime > parseValue.expires) {
+      //缓存过期，清除缓存，返回false
+      removeSto(key);
+      return false;
+    } else {
+      return parseValue.value;
+    }
+  } else {
+    return parseValue.value;
+  }
 }
 /**
  * 删除
  * @param {String} key 键
  */
-export function removeSto(key) {
+export function removeLSto(key) {
   localStorage.removeItem(key);
 }
 /**
  * 清空
  */
-export function clearSto() {
+export function clearLSto() {
   localStorage.clear();
 }
 /**
@@ -46,9 +64,28 @@ export function importFile(url) {
  */
 export const px2rem = (px) => {
   if (/%/gi.test(px)) {
-      // 有百分号%，特殊处理，表述pc是一个有百分号的数，比如：90%
-      return px;
+    // 有百分号%，特殊处理，表述pc是一个有百分号的数，比如：90%
+    return px;
   } else {
-      return parseFloat(px) / 75 + 'rem'; // 这里的75，和postcss.config.js里的rootValue值对应
+    return parseFloat(px) / 75 + "rem"; // 这里的75，和postcss.config.js里的rootValue值对应
   }
 };
+/**
+ * 面包屑递归扁平化处理
+ * @param {Array} nodes 菜单数据
+ * @param {String|Number} id 主键id
+ * @returns {Array|null} [{}...]
+ */
+export function findMenuItem(nodes, id) {
+  for (let node of nodes) {
+    if (node.id === id) {
+      return [node];
+    } else if (node.children) {
+      let result = findMenuItem(node.children, id);
+      if (result) {
+        return [node, ...result];
+      }
+    }
+  }
+  return null;
+}
