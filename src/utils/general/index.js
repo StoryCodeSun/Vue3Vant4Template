@@ -29,7 +29,7 @@ export function getLSto(key) {
       return parseValue.value;
     }
   } else {
-    return parseValue.value;
+    return parseValue;
   }
 }
 /**

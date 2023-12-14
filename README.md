@@ -106,8 +106,13 @@ npm run lint
   }
   ```
 + 在页面中使用 iconfont 图标。例如：
-  ```
+  ```html
   <i class="iconfont icon-home"></i>
+  <i class="iconFont">&#xe60e;</i>
+  <i class="iconFont">&#xe60e;</i>
+  <!-- 变量的方式 &#x改为\u -->
+  const icon = ref('\ue60e')
+  <i class="iconFont">{{icon}}</i>
   ```
 ### 集成外部字体
 + 下载需要引入的字体文件（一般为 .ttf 格式）。
