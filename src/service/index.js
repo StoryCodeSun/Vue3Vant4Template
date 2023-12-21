@@ -18,7 +18,7 @@ const beginRequest = new request({
     },
     responseSuccessFn: (response) => {
       if (MODE == "development" && response.data?.code != 200) {
-        alert("后端接口出错啦-_-||༼ つ ◕_◕ ༽つ==>" + response.data?.msg ?? response.data?.message);
+        alert(`后端接口出错啦-_-||༼ つ ◕_◕ ༽つ=code:${response.data?.code}=>` + response.data?.msg ?? response.data?.message);
       }
       // 响应拦截器
       return response.data;
