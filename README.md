@@ -2,7 +2,7 @@
 
 ### Project Introduction
 
-### 基于[vant](https://vant-contrib.gitee.io/vant/#/zh-CN/home)封装: node-v v16.20.2 npm-v 8.19.4
+### 基于[vant](https://vant-contrib.gitee.io/vant/#/zh-CN/home)封装: node-v v16.20.2 | npm-v 8.19.4
 
 
 ## Recommended IDE Setup
@@ -84,10 +84,9 @@ npm run lint
 ```
 ### 跨域问题
 
-+ 通过vite 中 proxy代理解决跨域问题
-+ 不管后端做不做跨域处理, 在开发阶段你只需要修改.env.development文件中VITE_APP_BASE_API的域名
++ 通过 vite 中 proxy 代理解决跨域问题
++ 不管后端做不做跨域处理, 在开发阶段你只需要修改 .env.development 文件中 VITE_APP_BASE_API 的域名
 + 其他环境亦是如此
-
 
 ### 集成 iconfont
 
@@ -107,7 +106,7 @@ npm run lint
   ```
 + 在页面中使用 iconfont 图标。例如：
   ```html
-  <i class="iconfont icon-home"></i>
+  <i class="iconFont icon-home"></i>
   <i class="iconFont">&#xe60e;</i>
   <i class="iconFont">&#xe60e;</i>
   <!-- 变量的方式 &#x改为\u -->
@@ -143,6 +142,7 @@ npm run lint
    proxy.xxx()
   ```
 ### css相关
++ 在标签通过v-wave指令实现点击效果
 + [弹性布局生成](https://loading.io/flexbox/)
 + [CSS拟态方块](https://neumorphism.io/)
 + [不规则的方块](https://9elements.github.io/fancy-border-radius/)
