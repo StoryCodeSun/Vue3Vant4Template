@@ -1,13 +1,10 @@
-<script setup>
-
-</script>
+<script setup></script>
 
 <template>
-  <div class="demoA">
-    demoA
-  </div>
+  <div class="demoA">demoA</div>
 </template>
 
 <style lang="css" scoped>
-  .demoA{}
+.demoA {
+}
 </style>

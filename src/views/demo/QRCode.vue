@@ -1,5 +1,5 @@
 <script setup>
-  import QRCodeVue3 from 'qrcode-vue3';
+import QRCodeVue3 from 'qrcode-vue3'
 </script>
 <template>
   <div>
@@ -18,9 +18,9 @@
           rotation: 0,
           colorStops: [
             { offset: 0, color: '#26249a' },
-            { offset: 1, color: '#26249a' },
-          ],
-        },
+            { offset: 1, color: '#26249a' }
+          ]
+        }
       }"
       :backgroundOptions="{ color: '#ffffff' }"
       :cornersSquareOptions="{ type: 'dot', color: '#000000' }"

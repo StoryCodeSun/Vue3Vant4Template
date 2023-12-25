@@ -41,7 +41,10 @@ npm run build || npm run build:prod
 ```sh
 npm run lint
 ```
-### components文件夹下所有组件均以进行自动导入无需单独引入
+### 以下目录中相关文件均以进行自动导入无需单独引入
+### components文件夹下所有组件
+### service/module文件夹下所有文件(中所有向外抛出的变量/方法)
+### service/module文件夹下所有模块(中所有向外抛出的变量/方法)
 
 ### 目录结构
 ```sh
@@ -147,6 +150,7 @@ npm run lint
 + [CSS拟态方块](https://neumorphism.io/)
 + [不规则的方块](https://9elements.github.io/fancy-border-radius/)
 + [优惠券工具](https://coupon.codelabo.cn/)
++ [H5浏览器调试插件(自行安装)](https://github.com/vadxq/vite-plugin-vconsole)
 ### 二维码集成
 + [参考文档](https://www.npmjs.com/package/qrcode-vue3)
 ### 关于创建页面路由自动生成
@@ -189,3 +193,4 @@ meta:
 }
 </route>
 ```
+

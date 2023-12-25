@@ -7,10 +7,10 @@
  */
 export function setLSto(key, value, expires = 0) {
   if (expires) {
-    let startTime = new Date().getTime(); // 记录缓存时间，毫秒
-    localStorage.setItem(key, JSON.stringify({ key, value, expires, startTime }));
+    let startTime = new Date().getTime() // 记录缓存时间，毫秒
+    localStorage.setItem(key, JSON.stringify({ key, value, expires, startTime }))
   } else {
-    localStorage.setItem(key, JSON.stringify(value));
+    localStorage.setItem(key, JSON.stringify(value))
   }
 }
 /**
@@ -18,18 +18,18 @@ export function setLSto(key, value, expires = 0) {
  * @param {String} key 键
  */
 export function getLSto(key) {
-  const parseValue = JSON.parse(localStorage.getItem(key));
+  const parseValue = JSON.parse(localStorage.getItem(key))
   if (parseValue?.startTime) {
-    let currentTime = new Date().getTime();
+    let currentTime = new Date().getTime()
     if (currentTime - parseValue.startTime > parseValue.expires) {
       //缓存过期，清除缓存，返回false
-      removeSto(key);
-      return false;
+      removeSto(key)
+      return false
     } else {
-      return parseValue.value;
+      return parseValue.value
     }
   } else {
-    return parseValue;
+    return parseValue
   }
 }
 /**
@@ -37,13 +37,13 @@ export function getLSto(key) {
  * @param {String} key 键
  */
 export function removeLSto(key) {
-  localStorage.removeItem(key);
+  localStorage.removeItem(key)
 }
 /**
  * 清空
  */
 export function clearLSto() {
-  localStorage.clear();
+  localStorage.clear()
 }
 /**
  * 静态文件引入
@@ -53,8 +53,8 @@ export function clearLSto() {
  * importFile('image/xxx')
  */
 export function importFile(url) {
-  console.log("url", url);
-  return new URL(`../assets/${url}`, import.meta.url).href;
+  console.log('url', url)
+  return new URL(`../assets/${url}`, import.meta.url).href
 }
 /**
  * 行内样式转换
@@ -65,11 +65,11 @@ export function importFile(url) {
 export const px2rem = (px) => {
   if (/%/gi.test(px)) {
     // 有百分号%，特殊处理，表述pc是一个有百分号的数，比如：90%
-    return px;
+    return px
   } else {
-    return parseFloat(px) / 75 + "rem"; // 这里的75，和postcss.config.js里的rootValue值对应
+    return parseFloat(px) / 75 + 'rem' // 这里的75，和postcss.config.js里的rootValue值对应
   }
-};
+}
 /**
  * 面包屑递归扁平化处理
  * @param {Array} nodes 菜单数据
@@ -79,13 +79,13 @@ export const px2rem = (px) => {
 export function findMenuItem(nodes, id) {
   for (let node of nodes) {
     if (node.id === id) {
-      return [node];
+      return [node]
     } else if (node.children) {
-      let result = findMenuItem(node.children, id);
+      let result = findMenuItem(node.children, id)
       if (result) {
-        return [node, ...result];
+        return [node, ...result]
       }
     }
   }
-  return null;
+  return null
 }

@@ -1,7 +1,7 @@
-import beginRequest from "..";
+import beginRequest from '..'
 
 export const requestAddressData = () =>
   beginRequest.request({
-    method: "GET",
-    url: "/captchaImage",
-  });
+    method: 'GET',
+    url: '/captchaImage'
+  })

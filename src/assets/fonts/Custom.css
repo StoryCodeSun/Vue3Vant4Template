@@ -7,7 +7,7 @@
 }
 
 .custom_family {
-  font-family: "Custom" !important;
+  font-family: 'Custom' !important;
   font-size: 16rpx;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
