@@ -1,4 +1,4 @@
-import { clearSto } from '@/utils'
+import { clearLSto } from '@/utils/general/index.js'
 import routes from 'pages-generated'
 import { createRouter, createWebHashHistory } from 'vue-router'
 console.log('routes', routes)
@@ -18,7 +18,7 @@ router.beforeEach((to, from, next) => {
   // const token = '111111111'
   next()
   // if (to.path === '/login/login') {
-  //   clearSto()
+  //   clearLSto()
   //   next()
   // } else if (!token) {
   //   next('/login/login')

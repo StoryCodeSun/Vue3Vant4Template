@@ -2,12 +2,9 @@
 
 ### Project Introduction
 
-### 基于[vant](https://vant-contrib.gitee.io/vant/#/zh-CN/home)封装
+### 基于[vant](https://vant-contrib.gitee.io/vant/#/zh-CN/home)封装: node-v v16.20.2 | npm-v 8.19.4
 
-### node-v npm-v
-```
-v16.20.2 | 8.19.4
-```
+
 ## Recommended IDE Setup
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
@@ -25,7 +22,7 @@ npm install
 ### Compile and Hot-Reload for Development
 
 ```sh
-npm run dev
+npm start | npm run dev
 ```
 
 ### Compile and Minify for Staging
@@ -39,18 +36,15 @@ npm run build:stage
 npm run build || npm run build:prod
 ```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-npm run test:unit
-```
-
 ### Lint with [ESLint](https://eslint.org/)
 
 ```sh
 npm run lint
 ```
-### components文件夹下所有组件均以进行自动导入无需单独引入
+### 以下目录中相关文件均以进行自动导入无需单独引入
+### components文件夹下所有组件
+### service/module文件夹下所有文件(中所有向外抛出的变量/方法)
+### service/module文件夹下所有模块(中所有向外抛出的变量/方法)
 
 ### 目录结构
 ```sh
@@ -59,33 +53,43 @@ npm run lint
 ├─.vscode
 ├─node_modules  依赖文件
 ├─public  公共
-└─src  源文件
-    ├─assets     资源
-    │  └─theme   主题修改
-    ├─components 全局公共组件  无需引入
-    ├─hooks      hooks 抽离
-    ├─plugins    插中方法封装抽离
-    ├─router     路由
-    ├─service    请求相关
-    │  ├─config  环境配置
-    │  ├─module  请求模块化抽离
-    │  └─request 请求封装
-    ├─stores     状态管理
-    │  └─module  模块化
-    ├─utils      工具方法抽离
-    └─views      视图资源
-        ├─404    找不到页面
-        ├─layout 布局
-        │  ├─home
-        │  ├─my  我的
-        └─login  登录
+├─src  源文件
+│   ├─assets        资源
+│   │  └─theme      主题修改
+│   ├─components    全局公共组件  无需引入
+│   ├─hooks         hooks 抽离
+│   ├─layout/layout 布局（菜单页编写位置）
+│   ├─locale        国际化
+│   ├─router        路由
+│   ├─service       请求相关
+│   │  ├─config     环境配置
+│   │  ├─module     请求模块化抽离
+│   │  └─request    请求封装
+│   ├─stores        状态管理
+│   │  └─module     模块化
+│   ├─utils         工具方法抽离
+│   ├─views         视图资源（子页面编写位置）
+│   │   ├─404       找不到页面
+│   │   └─login     登录
+│   └─App           vue入口
+├─.env.development  开发环境配置
+├─.env.production   生产环境配置
+├─.env.staging      测试环境配置
+├─.eslintrc.js      eslint配置文件
+├─.gitignore        git忽略文件
+├─.prettierrc.json  代码风格文件
+├─index.html        入口页面
+├─package-lock.json 精确版本依赖文件
+├─package.json      依赖文件
+├─README.md         README自述文件
+└─vite.config.js    vite配置文件
+
 ```
 ### 跨域问题
 
-+ 通过vite 中 proxy代理解决跨域问题
-+ 不管后端做不做跨域处理, 在开发阶段你只需要修改.env.development文件中VITE_APP_BASE_API的域名
++ 通过 vite 中 proxy 代理解决跨域问题
++ 不管后端做不做跨域处理, 在开发阶段你只需要修改 .env.development 文件中 VITE_APP_BASE_API 的域名
 + 其他环境亦是如此
-
 
 ### 集成 iconfont
 
@@ -104,8 +108,13 @@ npm run lint
   }
   ```
 + 在页面中使用 iconfont 图标。例如：
-  ```
-  <i class="iconfont icon-home"></i>
+  ```html
+  <i class="iconFont icon-home"></i>
+  <i class="iconFont">&#xe60e;</i>
+  <i class="iconFont">&#xe60e;</i>
+  <!-- 变量的方式 &#x改为\u -->
+  const icon = ref('\ue60e')
+  <i class="iconFont">{{icon}}</i>
   ```
 ### 集成外部字体
 + 下载需要引入的字体文件（一般为 .ttf 格式）。
@@ -136,10 +145,12 @@ npm run lint
    proxy.xxx()
   ```
 ### css相关
++ 在标签通过v-wave指令实现点击效果
 + [弹性布局生成](https://loading.io/flexbox/)
 + [CSS拟态方块](https://neumorphism.io/)
 + [不规则的方块](https://9elements.github.io/fancy-border-radius/)
 + [优惠券工具](https://coupon.codelabo.cn/)
++ [H5浏览器调试插件(自行安装)](https://github.com/vadxq/vite-plugin-vconsole)
 ### 二维码集成
 + [参考文档](https://www.npmjs.com/package/qrcode-vue3)
 ### 关于创建页面路由自动生成
@@ -182,3 +193,4 @@ meta:
 }
 </route>
 ```
+

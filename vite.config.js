@@ -27,10 +27,13 @@ export default defineConfig(({ command, mode }) => {
       vueSetupExtend(),
       AutoImport({
         imports: ["vue", "vue-router", "pinia"],
-        dirs: ["./src/service", "./src/stores"],
+        dirs: ["./src/service/module", "./src/stores/module"],
       }),
       Components({
         resolvers: [VantResolver()],
+        dirs: ["src/components"],
+        extensions: ["vue"],
+        deep: true,
       }),
     ],
     css: {
@@ -68,6 +71,7 @@ export default defineConfig(({ command, mode }) => {
         },
       },
     },
+    base: "/", // 映射
     build: {
       outDir: "decline_code_H5",
       assetsDir: "assets", //! 勿修改 utils 工具中 importFile 函数以 assets 为相对路径

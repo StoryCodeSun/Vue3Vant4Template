@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios'
 
 /**
  * @class  mainRequest
@@ -18,27 +18,33 @@ import axios from "axios";
 
 class mainRequest {
   constructor(config) {
-    this.instance = axios.create(config);
+    this.instance = axios.create(config)
     // 全局
     this.instance.interceptors.request.use(
       (config) => {
-        return config;
+        return config
       },
       (err) => {
-        return err;
-      },
-    );
+        return err
+      }
+    )
     this.instance.interceptors.response.use(
       (res) => {
-        return res;
+        return res
       },
       (err) => {
-        return err;
-      },
-    );
+        return err
+      }
+    )
     // 类
-    this.instance.interceptors.request.use(config.interceptors?.requestSuccessFn, config.interceptors?.requestFailureFn);
-    this.instance.interceptors.response.use(config.interceptors?.responseSuccessFn, config.interceptors?.responseFailureFn);
+    this.instance.interceptors.request.use(
+      config.interceptors?.requestSuccessFn,
+      config.interceptors?.requestFailureFn
+    )
+    this.instance.interceptors.response.use(
+      config.interceptors?.responseSuccessFn,
+      config.interceptors?.responseFailureFn
+    )
   }
   /**
    * @method
@@ -58,21 +64,21 @@ class mainRequest {
   request(config) {
     // 类单次
     if (config.interceptors?.requestSuccessFn) {
-      config = config.interceptors.requestSuccessFn(config);
+      config = config.interceptors.requestSuccessFn(config)
     }
     return new Promise((resolve, reject) => {
       this.instance
         .request(config)
         .then((res) => {
           if (config.interceptors?.responseSuccessFn) {
-            res = config.interceptors.responseSuccessFn(res);
+            res = config.interceptors.responseSuccessFn(res)
           }
-          resolve(res);
+          resolve(res)
         })
         .catch((err) => {
-          reject(err);
-        });
-    });
+          reject(err)
+        })
+    })
   }
   /**
    * get请求
@@ -84,7 +90,7 @@ class mainRequest {
    * @returns {Promise} Promise
    */
   get(config) {
-    return this.request({ ...config, method: "GET" });
+    return this.request({ ...config, method: 'GET' })
   }
   /**
    * post请求
@@ -96,7 +102,7 @@ class mainRequest {
    * @returns {Promise} Promise
    */
   post(config) {
-    return this.request({ ...config, method: "POST" });
+    return this.request({ ...config, method: 'POST' })
   }
   /**
    * delete请求
@@ -108,7 +114,7 @@ class mainRequest {
    * @returns {Promise} Promise
    */
   delete(config) {
-    return this.request({ ...config, method: "DELETE" });
+    return this.request({ ...config, method: 'DELETE' })
   }
   /**
    * patch请求
@@ -120,8 +126,8 @@ class mainRequest {
    * @returns {Promise} Promise
    */
   patch(config) {
-    return this.request({ ...config, method: "PATCH" });
+    return this.request({ ...config, method: 'PATCH' })
   }
 }
 
-export default mainRequest;
+export default mainRequest

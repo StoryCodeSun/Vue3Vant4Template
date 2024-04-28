@@ -12,6 +12,6 @@ meta:
   requiresAuth: true
 </route>
 <style lang="css" scoped>
-  .my {
-  }
+.my {
+}
 </style>

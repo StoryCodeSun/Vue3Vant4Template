@@ -1,6 +1,6 @@
 <script setup>
-  import { useMenu } from '@/stores/module/menu.js'
-  const { menuActive, menuList } = storeToRefs(useMenu())
+import { useMenu } from '@/stores/module/menu.js'
+const { menuActive, menuList } = storeToRefs(useMenu())
 </script>
 
 <template>
@@ -20,7 +20,7 @@ meta:
   requiresAuth: true
 </route>
 <style lang="scss" scoped>
-.layout{
+.layout {
   background-color: var(--van-black);
 }
 </style>

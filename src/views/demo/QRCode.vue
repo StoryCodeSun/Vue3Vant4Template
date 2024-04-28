@@ -1,10 +1,9 @@
 <script setup>
-  import QRCodeVue3 from 'qrcode-vue3';
+import QRCodeVue3 from 'qrcode-vue3'
 </script>
 <template>
   <div>
     <QRCodeVue3 value="Simple QR code" />
-
     <QRCodeVue3
       :width="200"
       :height="200"
@@ -19,9 +18,9 @@
           rotation: 0,
           colorStops: [
             { offset: 0, color: '#26249a' },
-            { offset: 1, color: '#26249a' },
-          ],
-        },
+            { offset: 1, color: '#26249a' }
+          ]
+        }
       }"
       :backgroundOptions="{ color: '#ffffff' }"
       :cornersSquareOptions="{ type: 'dot', color: '#000000' }"
@@ -35,3 +34,10 @@
     />
   </div>
 </template>
+<route lang="yaml">
+name: QRCode
+path: /QRCode
+meta:
+  title: page_title
+  requiresAuth: true
+</route>
