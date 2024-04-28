@@ -1,0 +1,371 @@
+$distance: 40; // 间距
+$rounded: 40; //圆角
+$sizes: 40; // 文字
+$unit: "px"; // 单位 可选值: 'px' 'rpx'
+$step: 1; // rpx时为2
+$themeColors: (
+  "primary": #007bff,
+  "secondary": #6c757d,
+  "success": #28a745,
+  "info": #17a2b8,
+  "warning": #ffc107,
+  "danger": #dc3545,
+  "light": #f8f9fa,
+  "dark": #343a40,
+  "theme": #4a5dff,
+);
+
+// 前背景色
+@each $color, $value in $themeColors {
+  .bg-#{$color} {
+    background-color: $value;
+  }
+  .text-#{$color} {
+    color: $value;
+  }
+}
+
+// 边框
+@each $color, $value in $themeColors {
+  .border-#{$color} {
+    border-color: $value;
+  }
+}
+
+// 按钮
+@each $color, $value in $themeColors {
+  .btn-#{$color} {
+    background-color: $value;
+    color: #fff;
+  }
+  .btn-#{$color}:hover {
+    background-color: darken($value, 10%);
+  }
+}
+
+// 内外边距
+@for $i from 1 through $distance {
+  .m-#{$i} {
+    margin: $i * $step + $unit;
+  }
+  .mx-#{$i} {
+    margin: $i * $step + $unit 0;
+  }
+  .my-#{$i} {
+    margin: 0 $i * $step + $unit;
+  }
+  .mt-#{$i} {
+    margin-top: $i * $step + $unit;
+  }
+  .mb-#{$i} {
+    margin-bottom: $i * $step + $unit;
+  }
+  .ml-#{$i} {
+    margin-left: $i * $step + $unit;
+  }
+  .mr-#{$i} {
+    margin-right: $i * $step + $unit;
+  }
+  .p-#{$i} {
+    padding: $i * $step + $unit;
+  }
+  .px-#{$i} {
+    padding: $i * $step + $unit 0;
+  }
+  .py-#{$i} {
+    padding: 0 $i * $step + $unit;
+  }
+  .pt-#{$i} {
+    padding-top: $i * $step + $unit;
+  }
+  .pb-#{$i} {
+    padding-bottom: $i * $step + $unit;
+  }
+  .pl-#{$i} {
+    padding-left: $i * $step + $unit;
+  }
+  .pr-#{$i} {
+    padding-right: $i * $step + $unit;
+  }
+}
+// 文字
+@for $i from 1 through ($sizes - 11) {
+  .text-#{$i + 11} {
+    font-size: ($i + 11) * $step + $unit;
+  }
+}
+// 圆角
+@for $i from 1 through 20 {
+  .rounded-#{$i} {
+    border-radius: $i * $step + $unit;
+  }
+}
+.rounded {
+  border-radius: 50%;
+}
+.flex {
+  display: flex;
+}
+// flex-direction
+.flex-row {
+  flex-direction: row;
+}
+.flex-row-reverse {
+  flex-direction: row-reverse;
+}
+.flex-column {
+  flex-direction: column;
+}
+.flex-column-reverse {
+  flex-direction: column-reverse;
+}
+// flex-wrap
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+.flex-wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+
+.flex-1 {
+  flex: 1;
+}
+.flex-auto {
+  flex: auto;
+}
+.flex-initial {
+  flex: initial;
+}
+.flex-none {
+  flex: none;
+}
+
+// justify-content
+.justify-normal {
+  justify-content: normal;
+}
+.justify-start {
+  justify-content: flex-start;
+}
+.justify-end {
+  justify-content: flex-end;
+}
+.justify-center {
+  justify-content: center;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.justify-around {
+  justify-content: space-around;
+}
+.justify-evenly {
+  justify-content: space-evenly;
+}
+.justify-stretch {
+  justify-content: stretch;
+}
+
+// justify-items
+.justify-items-start {
+  justify-items: start;
+}
+.justify-items-end {
+  justify-items: end;
+}
+.justify-items-center {
+  justify-items: center;
+}
+.justify-items-baseline {
+  justify-items: baseline;
+}
+.justify-items-stretch {
+  justify-items: stretch;
+}
+
+// justify-self
+.justify-self-auto {
+  justify-self: auto;
+}
+.justify-self-start {
+  justify-self: start;
+}
+.justify-self-end {
+  justify-self: end;
+}
+.justify-self-center {
+  justify-self: center;
+}
+.justify-self-stretch {
+  justify-self: stretch;
+}
+
+// align-items
+.items-start {
+  align-items: flex-start;
+}
+.items-end {
+  align-items: flex-end;
+}
+.items-center {
+  align-items: center;
+}
+.items-baseline {
+  align-items: baseline;
+}
+.items-stretch {
+  align-items: stretch;
+}
+
+// align-self
+.self-auto {
+  align-self: auto;
+}
+.self-start {
+  align-self: flex-start;
+}
+.self-end {
+  align-self: flex-end;
+}
+.self-center {
+  align-self: center;
+}
+.self-stretch {
+  align-self: stretch;
+}
+
+// align-content
+.content-normal {
+  align-content: normal;
+}
+.content-center {
+  align-content: center;
+}
+.content-start {
+  align-content: flex-start;
+}
+.content-end {
+  align-content: flex-end;
+}
+.content-between {
+  align-content: space-between;
+}
+.content-around {
+  align-content: space-around;
+}
+.content-evenly {
+  align-content: space-evenly;
+}
+.content-baseline {
+  align-content: baseline;
+}
+.content-stretch {
+  align-content: stretch;
+}
+// 排序
+@for $i from 1 through 10 {
+  .order-#{$i} {
+    order: $i;
+  }
+}
+// 文字
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+.text-center {
+  text-align: center;
+}
+.text-justify {
+  text-align: justify;
+}
+.text-start {
+  text-align: start;
+}
+.text-end {
+  text-align: end;
+}
+// 省略号
+.text-truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+// 阴影
+.shadow {
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+}
+.hidden{
+  display: none;
+}
+.block	{
+  display: block;
+}
+.inline-block	{
+  display: inline-block;
+}
+.inline	{
+  display: inline;
+}
+.clear-both	{
+  clear: both;
+}
+.clear-left	{
+  clear: left;
+}
+.clear-right	{
+  clear: right;
+}
+.clear-both	{
+  clear: both;
+}
+.float-left	{
+  float: left;
+}
+.float-right	{
+  float: right;
+}
+.float-none	{
+  float: none;
+}
+.overflow-auto	{
+  overflow: auto;
+}
+.overflow-hidden	{
+  overflow: hidden;
+}
+.overflow-visible	{
+  overflow: visible;
+}
+.overflow-scroll	{
+  overflow: scroll;
+}
+.overflow-x-auto	{
+  overflow-x: auto;
+}
+.overflow-x-hidden	{
+  overflow-x: hidden;
+}
+.overflow-x-visible	{
+  overflow-x: visible;
+}
+.overflow-x-scroll	{
+  overflow-x: scroll;
+}
+.overflow-y-auto	{
+  overflow-y: auto;
+}
+.overflow-y-hidden	{
+  overflow-y: hidden;
+}
+.overflow-y-visible	{
+  overflow-y: visible;
+}
+.overflow-y-scroll	{
+  overflow-y: scroll;
+}
